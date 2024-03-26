@@ -1,0 +1,28 @@
+{
+  "http": {        
+     "request-timeout": 120
+  },
+  "logs": {
+    "level": "debug",
+    "transports": {
+      "console": {
+        "enabled": false
+      },
+      "file": {
+        "enabled": false,
+        "name": "/tmp/refinitiv-data-lib.log"
+      }
+    }
+  },
+  "sessions": {
+    "default": "platform.dp",
+    "platform": {
+        "dp": {
+            "app-key": "<appkey>",
+            "username": "<username>",
+            "password": "<passwd>",
+            "signon_control": true
+        }
+    }
+  }
+}
