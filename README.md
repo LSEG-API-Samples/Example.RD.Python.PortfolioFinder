@@ -3,7 +3,7 @@ The PortfolioFinder utility is a simple, convenience tool allowing users of the 
 
 ## Utility download
 
-A pre-built executable and Readme is available for Download within the [LSEG Developer Platform](https://developers.lseg.com/en/tools-catalog/portfoliofinder).
+A pre-built executable and Readme is available for Download within the [LSEG Developer Platform](https://developers.lseg.com/en/tools-catalog/portfolio-finder).
 
 ## Running the Utility
 
