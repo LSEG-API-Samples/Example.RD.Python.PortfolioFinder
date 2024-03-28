@@ -93,7 +93,7 @@ class Window(tk.Tk):
 		if typeIndex == 1:
 			return ['MarketIndex']
 		elif typeIndex == 2:
-			return ['IndustryList', 'RestrictedIndicatorList', 'PeerList', 'DynamicList', 'MonitorList']
+			return ['PeerList', 'MonitorList']
 		else:
 			return ['FundedPortfolio', 'CompositeFundedPortfolio', 'CarveOutPortfolio', 'ModelPortfolio', 'WatchList']
 

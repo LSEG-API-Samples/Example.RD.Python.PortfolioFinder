@@ -84,7 +84,7 @@ class InputFrame(ttk.Frame):
 
 		ttk.Frame.__init__(self, parent, relief=tk.GROOVE)
 
-		portfolio_types = ['My Portfolios & Lists', 'All Indices', 'LSEG Portfolios & Lists']
+		portfolio_types = ['My Portfolios & Lists', 'All Indices', 'Peer & Monitor Lists']
 		self.settings = Settings(self)
 
 		# ----------------------------------------
