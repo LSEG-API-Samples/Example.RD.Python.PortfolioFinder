@@ -58,4 +58,6 @@ Within the interface, you can select index-based portfolios by choosing the <em>
 
 | **Name** | **Release** | **Details** |
 | --- | --- | --- |
+| Nick Zincone | Release 1.1.0 | Upgraded to use Qt library<br>Support for column sorting and filtering |
 | Nick Zincone | Release 1.0.0 | Initial implementation |
+

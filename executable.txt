@@ -4,22 +4,22 @@ Executable
 The following instructions provide guidance to create a runtime executable.
 
 The 'PortfolioFinder' application is a GUI-based application written in Python. For convenience, a runtime executable
-has been created allowing users to simply download and run without the need to setup their machine with specific 
-components.
+has been created and uploaded within the Developer Portal allowing users to download and run without the need to setup 
+their machine with specific software.
 
-*Note*:  The current platform targeted is Windows.  However, future updates will also generate a runtime for MacOS.
+*Note*:  The current platform targeted is Windows.  However, future updates could also generate a runtime for MacOS.
 
-There are many options to create a runtime executable.  For now, we have chosen the 'pyinstaller' utility, but that may change.
+There are a number of available options to create a runtime executable.  For now, we have chosen the 'pyinstaller' utility.
 
 
 Using pyinstaller:
 
-> pyinstaller --noconsole --splash=Splash.png --onefile -n PortfolioFinder app.py
+> pyinstaller --noconsole --splash=Splash.png --onefile -n PortfolioFinder PortfolioFinder.py
 
 This will generate the .exe file within a 'dist' folder.  However, the full runtime package requires the following files:
 
 	o README.md						# Readme instructions for the utility
-	o LSEG.ico               		# Icon image loaded by the application
 	o refinitiv-data.config.json	# Application configuration file responsible for credentials to access portfolio data
+	o assets						# Entire directory contain the assets required by the application
 	
 	
