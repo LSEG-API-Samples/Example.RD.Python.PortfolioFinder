@@ -14,7 +14,7 @@ There are a number of available options to create a runtime executable.  For now
 
 Using pyinstaller:
 
-> pyinstaller --noconsole --splash=Splash.png --onefile -n PortfolioFinder PortfolioFinder.py
+> pyinstaller --noconsole --splash=Splash.png --icon=LSEG.ico --onefile -n PortfolioFinder PortfolioFinder.py
 
 This will generate the .exe file within a 'dist' folder.  However, the full runtime package requires the following files:
 
