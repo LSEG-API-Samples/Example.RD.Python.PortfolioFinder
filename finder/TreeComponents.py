@@ -1,7 +1,7 @@
 from PySide6.QtWidgets import QApplication, QTreeView, QMenu, QHeaderView, QGraphicsDropShadowEffect
-from PySide6.QtCore import QAbstractItemModel, QModelIndex, Qt, QEvent, QRect
+from PySide6.QtCore import QAbstractItemModel, QModelIndex, Qt, QRect
 import pandas as pd
-from PySide6.QtGui import QAction, QIcon, QCursor, QMouseEvent
+from PySide6.QtGui import QAction, QIcon,  QMouseEvent
 
 # PortfolioTreeView
 # Used to provide the ability to copy/paste cell text
@@ -52,6 +52,8 @@ class FilterHeaderView(QHeaderView):
         self.selected_filter = None
         self.filterCursor = False
 
+        
+
         # Apply the font to the header view
         font = self.font()
         font.setBold(True)               
@@ -96,17 +98,23 @@ class FilterHeaderView(QHeaderView):
         super(FilterHeaderView, self).mousePressEvent(event)
 
     # Used to change the cursor of the mouse when hovering over the filter icon when present
-    def viewportEvent(self, event):        
-        if event.type() == QEvent.MouseMove:
-            pos = self.mapFromGlobal(QCursor.pos())
-            if self.is_family_detected(self.logicalIndexAt(pos), pos):
-                self.viewport().setCursor(Qt.PointingHandCursor)
-                self.filterCursor = True
-            elif self.filterCursor:
-                self.viewport().setCursor(Qt.ArrowCursor)
-                self.filterCursor = False
+    # Note: I commented this code out because I believe there is a bug in the library.  The moment
+    #       you make a call to setCursor(), this seems to disable the cursor to change when 
+    #       hovering over the column separator. The small value to change the cursor when the user
+    #       hovers over the filter icon is far less valuable than losing the ability to not see
+    #       the column separator icon again.
+    #
+    # def viewportEvent(self, event):        
+    #     if event.type() == QEvent.MouseMove:
+    #         pos = self.mapFromGlobal(QCursor.pos())
+    #         if self.is_family_detected(self.logicalIndexAt(pos), pos):
+    #             self.viewport().setCursor(Qt.PointingHandCursor)
+    #             self.filterCursor = True
+    #         elif self.filterCursor:
+    #             self.viewport().setCursor(Qt.ArrowCursor)
+    #             self.filterCursor = False
 
-        return super(FilterHeaderView, self).viewportEvent(event)
+    #     return super(FilterHeaderView, self).viewportEvent(event)
 
     # is_family
     # Detects if the family filter is present based on the index and position of the cursor
