@@ -46,13 +46,9 @@ class FilterHeaderView(QHeaderView):
         self.families = []
         self.empty_filter = QIcon("assets/filter_empty.png")
         self.full_filter = QIcon("assets/filter_full.png")
-        self.icon = self.empty_filter
         self.filter_column = 1   # 'family' column
         self.filter_rec = None
         self.selected_filter = None
-        self.filterCursor = False
-
-        
 
         # Apply the font to the header view
         font = self.font()
@@ -62,6 +58,11 @@ class FilterHeaderView(QHeaderView):
 
     def setModel(self, model):
         super(FilterHeaderView, self).setModel(model)
+
+        # Reset filter details upon data load
+        self.icon = self.empty_filter
+        self.families = []
+        self.selected_filter = None
         if 'family' in model.df:
             self.families = model.df['family'].unique()
 
