@@ -118,8 +118,10 @@ class InputFrame(QWidget):
         # Disable submit initially upon startup - main controller will enable if properly initialized
         self.setSubmitState(False)
 
+    # Determine the input state for controls based on the status of the application or whether an outstanding request.
     def setSubmitState(self, enabled):
         self.submit_btn.setEnabled(enabled)
+        self.query.setEnabled(enabled)
 
     def on_submit(self):
         asyncio.ensure_future(self.submitRequest())
