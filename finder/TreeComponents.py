@@ -15,6 +15,7 @@ class PortfolioTreeView(QTreeView):
 
         self.setStyleSheet("QTreeView::branch { image: none; }") # Remove expanding arrow '>' from column 1
 
+    # Right-click a cell to copy/paste
     def contextMenuEvent(self, event):
         index = self.indexAt(event.pos())
         if not index.isValid():
@@ -36,6 +37,13 @@ class PortfolioTreeView(QTreeView):
     def copy_text(self, index):
         text = index.data(Qt.DisplayRole)
         QApplication.clipboard().setText(text)
+
+    # The default 'mouseDoubleClickEvent' causes the application to crash
+    # due to the data model and possibly the index() method.  For now, I
+    # can prevent this from happening by implementing the override method
+    # below.
+    def mouseDoubleClickEvent(self, event):
+        return  
 
 # FilterHeaderView
 # Used to providing column filtering
